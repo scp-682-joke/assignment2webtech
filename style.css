@@ -1,20 +1,240 @@
-.header{
+/* Shared styles and Part 1 */
+:root {
+    color-scheme: dark;
+    --background: #111416;
+    --surface: #1b2023;
+    --border: #343b3f;
+    --text: #f0f2ed;
+    --muted: #a5afad;
+    --accent: #c3ec88;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.eyebrow, .tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+}
+
+.eyebrow {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+/* FLEXBOX - shared navigation */
+.site-header, .brand, .navigation-bar, .site-footer, .section-heading {
+    display: flex;
     align-items: center;
-}
-
-.logo{
-    width: 100px;
-    height: auto;
-    justify-content: center;
-}
-
-.navigation-bar{
-    display: flex;
-    list-style-type: none;
-    background-color: #333;
-    overflow: hidden;
     gap: 20px;
-    justify-content: space-around;
+}
+
+.site-header, .site-footer, .section-heading {
+    justify-content: space-between;
+}
+
+.site-header, .navigation-bar, .site-footer {
+    flex-wrap: wrap;
+}
+
+.site-header {
+    padding: 20px 6%;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    gap: 10px;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.brand img {
+    filter: invert(1);
+}
+
+.navigation-bar {
+    list-style: none;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-bar a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.navigation-bar a:hover {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.navigation-bar a[aria-current="page"] {
+    background: var(--accent);
+    color: var(--background);
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    padding: 12px;
+    background: var(--accent);
+    color: var(--background);
+    z-index: 10;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+.page-content {
+    width: 88%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 48px 0;
+    flex: 1;
+}
+
+.page-intro {
+    margin-bottom: 36px;
+}
+
+.page-intro > p:last-child {
+    color: var(--muted);
+    max-width: 600px;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.section-heading > span, .site-footer {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.site-footer {
+    margin-top: auto;
+    padding: 24px 6%;
+    border-top: 1px solid var(--border);
+}
+
+/* FLEXBOX - equal-height game cards */
+.game-cards {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.game-card {
+    flex: 1;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    border-color: var(--accent);
+}
+
+.game-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 26px;
+}
+
+/* Native HTML details opens and closes without JavaScript. */
+summary {
+    cursor: pointer;
+    width: fit-content;
+    padding: 9px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+summary:hover {
+    background: var(--accent);
+    color: var(--background);
+}
+
+.game-description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.game-description p {
+    margin: 0;
+}
+
+/* Small screens */
+@media (max-width: 760px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .game-cards {
+        flex-direction: column;
+    }
 }
