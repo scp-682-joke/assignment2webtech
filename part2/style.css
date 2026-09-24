@@ -1,0 +1,185 @@
+/* GRID - header and footer span the sidebar and main content. */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    column-gap: 32px;
+}
+
+.site-header {
+    grid-area: header;
+}
+
+.profile-sidebar {
+    grid-area: sidebar;
+    margin: 48px 0 48px 24%;
+}
+
+.profile-main {
+    grid-area: main;
+    min-width: 0;
+    padding: 48px 8% 48px 0;
+}
+
+.site-footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-top: 0;
+}
+
+/* Show only the section chosen by the radio buttons. */
+.view-panel {
+    display: none;
+}
+
+.profile-layout:has(#show-profile:checked) #profile,
+.profile-layout:has(#show-achievements:checked) #achievements,
+.profile-layout:has(#show-statistics:checked) #statistics {
+    display: block;
+}
+
+.profile-menu, .game-list {
+    display: grid;
+    gap: 12px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    list-style: none;
+}
+
+.menu-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    color: var(--muted);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.menu-option input {
+    margin: 0;
+    accent-color: var(--accent);
+}
+
+.menu-option:hover, .menu-option:has(input:checked) {
+    background: var(--surface);
+    color: var(--accent);
+}
+
+.profile-panel {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.profile-panel p, .game-row > span, .playtime-summary p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.profile-identity {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.profile-identity h2, .profile-identity p {
+    margin-bottom: 3px;
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--background);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.genre-tags {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.genre-tags span {
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.game-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+}
+
+.game-row h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.game-row strong, .game-row .hours, .playtime-summary > strong {
+    color: var(--accent);
+}
+
+progress {
+    width: 100%;
+    height: 12px;
+    margin-top: 16px;
+    accent-color: var(--accent);
+}
+
+.playtime-summary {
+    margin-bottom: 24px;
+}
+
+.playtime-summary > strong {
+    font-size: 2.5rem;
+}
+
+.playtime-summary strong span, .hours span {
+    font-size: 0.85rem;
+}
+
+.game-row .hours {
+    font-size: 1.4rem;
+}
+
+@media (max-width: 760px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: "header" "sidebar" "main" "footer";
+    }
+
+    .profile-sidebar {
+        margin: 32px 6% 0;
+    }
+
+    .profile-main {
+        padding: 32px 6%;
+    }
+
+    .profile-identity, .game-row, .site-footer {
+        grid-template-columns: 1fr;
+    }
+}

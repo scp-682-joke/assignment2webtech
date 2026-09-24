@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | The Game Shelf</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="profile-layout">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <a class="brand" href="../index.html"><img src="../images/logo.png" alt="" width="36" height="36">The Game Shelf.</a>
+        <nav>
+            <ul class="navigation-bar">
+                <li><a href="../index.html">Part 1 · Games</a></li>
+                <li><a href="index.html">Part 2 · Profile</a></li>
+                <li><a href="../part3/index.html">Part 3 · Gallery</a></li>
+                <li><a href="../part4/index.html">Part 4 · Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="profile-sidebar">
+        <h2>Player menu</h2>
+        <!-- One radio group selects which panel CSS displays. -->
+        <fieldset class="profile-menu" aria-label="Choose a profile section">
+            <label class="menu-option">
+                <input type="radio" name="profile-view" id="show-profile" checked>
+                Profile
+            </label>
+            <label class="menu-option">
+                <input type="radio" name="profile-view" id="show-achievements">
+                Achievements
+            </label>
+            <label class="menu-option">
+                <input type="radio" name="profile-view" id="show-statistics">
+                Statistics
+            </label>
+        </fieldset>
+    </aside>
+    <main id="main" class="profile-main">
+        <section id="profile" class="view-panel">
+            <div class="page-intro">
+                <h1>Profile.</h1>
+                <p>A little about the player behind the collection.</p>
+            </div>
+            <div class="profile-panel">
+                <div class="profile-identity">
+                    <div class="avatar" role="img">C</div>
+                    <div>
+                        <p class="eyebrow">MY STEAM PROFILE</p>
+                        <h2>cvetyas</h2>
+                        <p>Always another world to explore.</p>
+                    </div>
+                </div>
+                <p>My game collection, achievement progress, and time spent playing.</p>
+                <div class="genre-tags"><span>Adventure</span><span>Action</span><span>Horror</span></div>
+            </div>
+        </section>
+
+        <section id="achievements" class="view-panel">
+            <div class="page-intro">
+                <h1>Achievements.</h1>
+                <p>Unlocked achievements from my Steam library.</p>
+            </div>
+            <ul class="game-list">
+                <li class="profile-panel">
+                    <div class="game-row"><h2>Hollow Knight</h2><span><strong>23</strong> / 63 unlocked</span></div>
+                    <progress value="23" max="63" aria-label="Hollow Knight achievements: 23 of 63">23 of 63</progress>
+                </li>
+                <li class="profile-panel">
+                    <div class="game-row"><h2>OMORI</h2><span><strong>34</strong> / 84 unlocked</span></div>
+                    <progress value="34" max="84" aria-label="OMORI achievements: 34 of 84">34 of 84</progress>
+                </li>
+                <li class="profile-panel">
+                    <div class="game-row"><h2>Resident Evil Requiem</h2><span><strong>29</strong> / 49 unlocked</span></div>
+                    <progress value="29" max="49" aria-label="Resident Evil Requiem achievements: 29 of 49">29 of 49</progress>
+                </li>
+                <li class="profile-panel">
+                    <div class="game-row"><h2>Papers, Please</h2><span><strong>12</strong> / 13 unlocked</span></div>
+                    <progress value="12" max="13" aria-label="Papers, Please achievements: 12 of 13">12 of 13</progress>
+                </li>
+            </ul>
+        </section>
+
+        <section id="statistics" class="view-panel">
+            <div class="page-intro">
+                <h1>Statistics.</h1>
+                <p>The hours behind the adventures.</p>
+            </div>
+            <div class="playtime-summary">
+                <strong>152.3 <span>hours</span></strong>
+                <p>Total across the four games below</p>
+            </div>
+            <ul class="game-list">
+                <li class="profile-panel game-row"><h2>Hollow Knight</h2><span class="hours">49.7 <span>hours</span></span></li>
+                <li class="profile-panel game-row"><h2>ULTRAKILL</h2><span class="hours">46.9 <span>hours</span></span></li>
+                <li class="profile-panel game-row"><h2>OMORI</h2><span class="hours">35.2 <span>hours</span></span></li>
+                <li class="profile-panel game-row"><h2>Resident Evil Requiem</h2><span class="hours">20.5 <span>hours</span></span></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="site-footer"><span>The Game Shelf</span><span>Artwork from Steam · A personal game collection</span></footer>
+</body>
+</html>
