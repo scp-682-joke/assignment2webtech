@@ -1,0 +1,56 @@
+/* GRID - three columns and four rows */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.gallery-item {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 460 / 215;
+    object-fit: cover;
+}
+
+/* HOVER CAPTION */
+.gallery-item figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.gallery-item figcaption span {
+    display: block;
+    color: var(--accent);
+    font-size: 0.75rem;
+}
+
+.gallery-item:hover figcaption, .gallery-item:focus figcaption {
+    opacity: 1;
+}
+
+/* Fit the full SCP banner without cutting off its title. */
+.gallery-item .wide-banner {
+    object-fit: contain;
+    background: var(--background);
+}
+
+@media (max-width: 760px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
